@@ -6,6 +6,10 @@ public class Teacher extends Person {
         this.salary = 3000;
     }
 
+    @Override
+    public String toString(){
+        return "Name: "+getName()+" Address: "+getAddress()+" Year: "+getYears();
+    }
 
 
 }

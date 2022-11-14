@@ -15,9 +15,9 @@ public abstract class Person {
         return years;
     }
 
-    private double years;
+    private int years;
 
-    Person(String name, String address, double years){
+    Person(String name, String address, int years){
         this.name = name;
         this.address = address;
         this.years = years;

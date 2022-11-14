@@ -13,7 +13,7 @@ public class Student extends Person{
 
     @Override
     public String toString(){
-        return String.format("Name: %s Address: %s Year: %i Fee: %d",getName(),getAddress(),getYears(),this.tuition);
+        return "Name: "+getName()+" Address: "+getAddress()+" Year: "+getYears();
     }
 
 

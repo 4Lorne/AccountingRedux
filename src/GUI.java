@@ -52,7 +52,25 @@ public class GUI extends JPanel {
     }
 
     void printReport(){
-        JOptionPane.showInternalMessageDialog(null,"Students: " + studentArrayList.size() , "Information",JOptionPane.INFORMATION_MESSAGE);
+        String studentOutput = buildString(studentArrayList);
+        String teacherOutput = buildTeacher(teacherArrayList);
+        JOptionPane.showInternalMessageDialog(null,"Student total: " +
+                studentArrayList.size() +"\n"+studentOutput+"\nStaff total:"+teacherArrayList.size()+"\n"+teacherOutput,"Information",JOptionPane.INFORMATION_MESSAGE);
 
+    }
+
+    String buildString(ArrayList<Student>student){
+        for (int i = 0; i < student.size();i++){
+            sb.append(i+1+"). ").append(student.get(i).toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
+    String buildTeacher(ArrayList<Teacher>teacher){
+        sb.setLength(0);
+        for (int i = 0; i < teacher.size();i++){
+            sb.append(i+1+"). ").append(teacher.get(i).toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
