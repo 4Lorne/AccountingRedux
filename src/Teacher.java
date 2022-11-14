@@ -1,14 +1,18 @@
 public class Teacher extends Person {
+    public double getSalary() {
+        return salary;
+    }
+
     private double salary;
 
     public Teacher(String name, String address, int years){
         super(name,address,years);
-        this.salary = 3000;
+        this.salary = 50000 + (500*years);
     }
 
     @Override
     public String toString(){
-        return "Name: "+getName()+" Address: "+getAddress()+" Year: "+getYears();
+        return String.format("Name: "+getName()+" Address: "+getAddress()+" Year: %.0f Tuition: "+getSalary(),getYears());
     }
 
 

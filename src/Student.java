@@ -8,12 +8,12 @@ public class Student extends Person{
 
     Student(String name, String address, int years){
         super(name,address,years);
-        this.tuition = 3000;
+        this.tuition = 2900 + (100 * years);
     }
 
     @Override
     public String toString(){
-        return "Name: "+getName()+" Address: "+getAddress()+" Year: "+getYears();
+        return String.format("Name: "+getName()+" Address: "+getAddress()+" Year: %.0f Tuition: "+getTuition(),getYears());
     }
 
 
