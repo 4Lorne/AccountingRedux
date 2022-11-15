@@ -1,10 +1,10 @@
-public class Teacher extends Person {
-    public double getSalary() {
-        return salary;
-    }
+import java.util.ArrayList;
 
+public class Teacher extends Person {
+    //Variables
     private double salary;
 
+    //Constructor
     public Teacher(String name, String address, int years){
         super(name,address,years);
         this.salary = 50000 + (500*years);
@@ -12,8 +12,11 @@ public class Teacher extends Person {
 
     @Override
     public String toString(){
-        return String.format("Name: "+getName()+" Address: "+getAddress()+" Year: %.0f Tuition: "+getSalary(),getYears());
+        return String.format("Name: "+getName()+" Address: "+getAddress()+" Year: %.0f Tuition: $"+getSalary(),getYears());
     }
 
-
+    //Getters
+    public double getSalary() {
+        return salary;
+    }
 }
