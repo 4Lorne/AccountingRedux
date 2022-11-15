@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-
 public class Teacher extends Person {
     //Variables
-    private double salary;
+    private final double salary;
 
     //Constructor
     public Teacher(String name, String address, int years){
