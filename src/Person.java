@@ -1,11 +1,11 @@
 public abstract class Person {
     //Variables
-    private String name;
-    private String address;
-    private int years;
+    private final String name;
+    private final String address;
+    private final int years;
 
     //Constructor
-    Person(String name, String address, int years){
+    Person(String name, String address, int years) {
         this.name = name;
         this.address = address;
         this.years = years;

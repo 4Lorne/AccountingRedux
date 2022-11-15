@@ -13,9 +13,9 @@ public class GUI extends JPanel {
     private int choice;
 
     //Initial menu
-    void launch(){
-        String [] choices = {"Student", "Staff", "Finish"};
-        choice = JOptionPane.showOptionDialog(null,"Select Student or Staff","Accounting App",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,choices,choices[1]);
+    void launch() {
+        String[] choices = {"Student", "Staff", "Finish"};
+        choice = JOptionPane.showOptionDialog(null, "Select Student or Staff", "Accounting App", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[1]);
 
         switch (choice) {
             case 0 -> studentChoice();
@@ -24,7 +24,7 @@ public class GUI extends JPanel {
     }
 
     //Takes input for student
-    void studentChoice(){
+    void studentChoice() {
         yearInt = validateIntStudent();
 
         name = JOptionPane.showInputDialog("Enter student name");
@@ -38,7 +38,7 @@ public class GUI extends JPanel {
             address = JOptionPane.showInputDialog("Enter student address");
         }
 
-        studentArrayList.add(new Student(name,address,yearInt));
+        studentArrayList.add(new Student(name, address, yearInt));
 
     }
 
@@ -59,19 +59,19 @@ public class GUI extends JPanel {
     }
 
     //Regex to validate teacher
-    int validateIntTeacher(){
+    int validateIntTeacher() {
         String year = "";
-        while (!year.matches("[0-9]+")){
+        while (!year.matches("[0-9]+")) {
             year = JOptionPane.showInputDialog("Enter staff years of service");
-            if (year.matches("[A-Z]+") || year.matches("[a-z]+")){
+            if (year.matches("[A-Z]+") || year.matches("[a-z]+")) {
                 JOptionPane.showMessageDialog(null, "Please enter a number", "Alert", JOptionPane.WARNING_MESSAGE);
             }
-            if (year.equals("")){
+            if (year.equals("")) {
                 JOptionPane.showMessageDialog(null, "Please enter valid information.", "Alert", JOptionPane.WARNING_MESSAGE);
             }
         }
         yearInt = Integer.parseInt(year);
-        if (yearInt >= 30 || yearInt < 1){
+        if (yearInt >= 30 || yearInt < 1) {
             JOptionPane.showMessageDialog(null, "Please enter a number between 1-29.", "Alert", JOptionPane.WARNING_MESSAGE);
             validateIntTeacher();
         }
@@ -79,19 +79,19 @@ public class GUI extends JPanel {
     }
 
     //Regex to validate student
-    int validateIntStudent(){
+    int validateIntStudent() {
         String year = "";
-        while (!year.matches("[0-9]+")){
+        while (!year.matches("[0-9]+")) {
             year = JOptionPane.showInputDialog("Enter student year(1-4)");
-            if (year.matches("[A-Z]+") || year.matches("[a-z]+")){
+            if (year.matches("[A-Z]+") || year.matches("[a-z]+")) {
                 JOptionPane.showMessageDialog(null, "Please enter a number", "Alert", JOptionPane.WARNING_MESSAGE);
             }
-            if (year.equals("")){
+            if (year.equals("")) {
                 JOptionPane.showMessageDialog(null, "Please enter valid information.", "Alert", JOptionPane.WARNING_MESSAGE);
             }
         }
         yearInt = Integer.parseInt(year);
-        if (yearInt > 4 || yearInt < 1){
+        if (yearInt > 4 || yearInt < 1) {
             JOptionPane.showMessageDialog(null, "Please enter a number between 1-4.", "Alert", JOptionPane.WARNING_MESSAGE);
             validateIntStudent();
         }
@@ -99,35 +99,35 @@ public class GUI extends JPanel {
     }
 
     //Outputs the report
-    void printReport(){
+    void printReport() {
         String studentOutput = buildStudent(studentArrayList);
         String teacherOutput = buildTeacher(teacherArrayList);
-        String resultsOutput = buildResults(studentArrayList,teacherArrayList);
-        JOptionPane.showInternalMessageDialog(null,"Students: [Total:" +
-                studentArrayList.size() +"]\n"+studentOutput+"\nStaff:[Total:"
-                +teacherArrayList.size()+"]\n"+teacherOutput+"\n\n\n"+resultsOutput,
-                "Information",JOptionPane.INFORMATION_MESSAGE);
+        String resultsOutput = buildResults(studentArrayList, teacherArrayList);
+        JOptionPane.showInternalMessageDialog(null, "Students: [Total:" +
+                        studentArrayList.size() + "]\n" + studentOutput + "\nStaff:[Total:"
+                        + teacherArrayList.size() + "]\n" + teacherOutput + "\n\n\n" + resultsOutput,
+                "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     //Builds student string
-    String buildStudent(ArrayList<Student>student){
-        for (int i = 0; i < student.size();i++){
-            sb.append(i+1).append("). ").append(student.get(i).toString()).append("\n");
+    String buildStudent(ArrayList<Student> student) {
+        for (int i = 0; i < student.size(); i++) {
+            sb.append(i + 1).append("). ").append(student.get(i).toString()).append("\n");
         }
         return sb.toString();
     }
 
     //Builds teacher string
-    String buildTeacher(ArrayList<Teacher>teacher){
+    String buildTeacher(ArrayList<Teacher> teacher) {
         sb.setLength(0);
-        for (int i = 0; i < teacher.size();i++){
-            sb.append(i+1).append("). ").append(teacher.get(i).toString()).append("\n");
+        for (int i = 0; i < teacher.size(); i++) {
+            sb.append(i + 1).append("). ").append(teacher.get(i).toString()).append("\n");
         }
         return sb.toString();
     }
 
     //Prints results
-    String buildResults(ArrayList<Student>student, ArrayList<Teacher> teacher){
+    String buildResults(ArrayList<Student> student, ArrayList<Teacher> teacher) {
         sb.setLength(0);
         double totalStudent = 0;
         double totalTeacher = 0;
@@ -145,7 +145,7 @@ public class GUI extends JPanel {
         totalTeacher = totalTeacher / 26;
         totalOverall = totalStudent - totalTeacher;
 
-        return String.format("Results\nOutgoing: $%.2f\nIncoming: $%.2f\nTotal: $%.2f",totalTeacher,totalStudent,totalOverall);
+        return String.format("Results\nOutgoing: $%.2f\nIncoming: $%.2f\nTotal: $%.2f", totalTeacher, totalStudent, totalOverall);
     }
 
     //Getter

@@ -3,14 +3,14 @@ public class Teacher extends Person {
     private final double salary;
 
     //Constructor
-    public Teacher(String name, String address, int years){
-        super(name,address,years);
-        this.salary = 50000 + (500*years);
+    public Teacher(String name, String address, int years) {
+        super(name, address, years);
+        this.salary = 50000 + (500 * years);
     }
 
     @Override
-    public String toString(){
-        return String.format("Name: "+getName()+" Address: "+getAddress()+" Year: %.0f Tuition: $"+getSalary(),getYears());
+    public String toString() {
+        return String.format("Name: " + getName() + " Address: " + getAddress() + " Year: %.0f Tuition: $" + getSalary(), getYears());
     }
 
     //Getters
