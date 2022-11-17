@@ -8,6 +8,7 @@ public class Student extends Person {
         this.tuition = 2900 + (100 * years);
     }
 
+    //toString method
     @Override
     public String toString() {
         return String.format("Name: " + getName() + " Address: " + getAddress() + " Year: %.0f Tuition: $" + getTuition(), getYears());

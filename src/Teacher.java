@@ -8,6 +8,7 @@ public class Teacher extends Person {
         this.salary = 50000 + (500 * years);
     }
 
+    //toString method
     @Override
     public String toString() {
         return String.format("Name: " + getName() + " Address: " + getAddress() + " Year: %.0f Tuition: $" + getSalary(), getYears());

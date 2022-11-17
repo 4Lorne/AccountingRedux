@@ -25,8 +25,10 @@ public class GUI extends JPanel {
 
     //Takes input for student
     void studentChoice() {
+        //Method to check for valid int input
         yearInt = validateIntStudent();
 
+        //Input validation, checking for empty input.
         name = JOptionPane.showInputDialog("Enter student name");
         while (name.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter valid information.", "Alert", JOptionPane.WARNING_MESSAGE);
@@ -44,6 +46,7 @@ public class GUI extends JPanel {
 
     //Takes input for teacher
     void teacherChoice() {
+        //Input validation, checking for empty input.
         name = JOptionPane.showInputDialog("Enter staff name");
         while (name.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter valid information.", "Alert", JOptionPane.WARNING_MESSAGE);
@@ -98,7 +101,7 @@ public class GUI extends JPanel {
         return yearInt;
     }
 
-    //Outputs the report
+    //Outputs the report using String Builder
     void printReport() {
         String studentOutput = buildStudent(studentArrayList);
         String teacherOutput = buildTeacher(teacherArrayList);
